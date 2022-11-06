@@ -10,7 +10,7 @@ import session from "express-session";
 import MongoStore from "connect-mongo";
 import flash from "connect-flash"
 import methodOverride from "method-override"
-const port = 3000
+const port = process.env.PORT
 const app = Express()
 const __dirname = path.resolve()
 
