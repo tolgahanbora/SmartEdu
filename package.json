@@ -1,0 +1,39 @@
+{
+  "name": "smartedu",
+  "version": "1.0.0",
+  "description": "Smartedu is a education app. You can be add course and got admin panel",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tolgahanbora/SmartEdu.git"
+  },
+  "keywords": [
+    "education"
+  ],
+  "author": "Tolgahan Bora",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tolgahanbora/SmartEdu/issues"
+  },
+  "homepage": "https://github.com/tolgahanbora/SmartEdu#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "connect-flash": "^0.1.1",
+    "connect-mongo": "^4.6.0",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "express-validator": "^6.14.2",
+    "method-override": "^3.0.0",
+    "mongoose": "^6.7.0",
+    "nodemailer": "^6.8.0",
+    "nodemon": "^2.0.20",
+    "slugify": "^1.6.5"
+  },
+  "type": "module"
+}

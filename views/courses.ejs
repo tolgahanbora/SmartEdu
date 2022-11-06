@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Basic -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Mobile Metas -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Site Metas -->
+<title>SmartEDU - Education Responsive HTML5 Template</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<!-- Site Icons -->
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<!-- Site CSS -->
+<link rel="stylesheet" href="style.css">
+<!-- ALL VERSION CSS -->
+<link rel="stylesheet" href="css/versions.css">
+<!-- Responsive CSS -->
+<link rel="stylesheet" href="css/responsive.css">
+<!-- Custom CSS -->
+<link rel="stylesheet" href="css/custom.css">
+
+<!-- Modernizer for Portfolio -->
+<script src="js/modernizer.js"></script>
+
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body class="host_version">
+
+    <!-- LOADER -->
+    <div id="preloader">
+        <div class="loader-container">
+            <div class="progress-br float shadow">
+                <div class="progress__item"></div>
+            </div>
+        </div>
+    </div>
+    <!-- END LOADER -->
+
+    <!-- Start header -->
+    <header class="top-navbar">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/index">
+                    <img src="images/logo.png" alt="" />
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-host"
+                    aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbars-host">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                        <li class="nav-item active"><a class="nav-link" href="/about">About Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/courses">Courses</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/dashboard">Dashboard</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+                    </ul>
+                    <% if(!userID) { %>
+
+
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a class="hover-btn-new log orange mr-2" href="/login"><span><i class="fa fa-sign-in"
+                                            aria-hidden="true"></i></span></a></li>
+                            <li><a class="hover-btn-new log orange" href="/register"><span><i class="fa fa-user-plus"
+                                            aria-hidden="true"></i></span></a></li>
+                        </ul>
+                        <% } %>
+
+                            <% if(userID) { %>
+
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li><a class="hover-btn-new log orange mr-2" href="users/logout"><span><i
+                                                    class="fa fa-sign-out" aria-hidden="true"></i></span></a></li>
+                                </ul>
+                                <% } %>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- End header -->
+
+
+    <div class="all-title-box">
+        <div class="container text-center">
+            <h1>Courses<span class="m_1">Lorem Ipsum dolroin gravida nibh vel velit.</span></h1>
+        </div>
+    </div>
+    <% if (flashMessages) { %>
+        <% if (flashMessages.success) { %>
+            <div class="alert alert-success">
+                <%= flashMessages.success %>
+            </div>
+            <% } else if (flashMessages.error) { %>
+                <div class="alert alert-danger">
+                    <%= flashMessages.error %>
+                </div>
+                <% } %>
+                    <% } %>
+
+                        <div id="overviews" class="section wb">
+
+                            <div class="container">
+
+                                <div class="row">
+                                    <div class="col-lg-3 col-12 right-single">
+                                        <div class="widget-search">
+                                            <div class="site-search-area">
+                                                <form method="GET" id="site-searchform" action="/courses">
+                                                    <div>
+                                                        <input class="input-text form-control" name="search"
+                                                            id="search-k" placeholder="Search" type="text">
+                                                        <button id="searchsubmit" value="Search"
+                                                            type="submit"></button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <div class="widget-categories">
+                                            <h3 class="widget-title">Categories</h3>
+
+                                            <ul>
+                                                <% for (let i=0 ; i < categories.length ; i++) { %>
+                                                    <li><a
+                                                            href="courses?categories=<%= categories[i].slug %>">
+                                                            <%= categories[i].title %>
+                                                        </a></li>
+                                                    <% } %>
+                                            </ul>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-9 blog-post-single">
+                                        <div class="row">
+                                            <% for (let i=0 ; i < courses.length ; i++) { %>
+                                                <div class="col-lg-6 col-md-6 col-12">
+                                                    <div class="course-item mb-5">
+                                                        <div class="image-blog">
+                                                            <img src="images/blog_1.jpg" alt="" class="img-fluid">
+                                                        </div>
+                                                        <div class="course-br">
+                                                            <div class="course-title">
+                                                                <h2><a href="courses/<%= courses[i].slug %>" title="">
+                                                                        <%= courses[i].title %>
+                                                                    </a></h2>
+                                                            </div>
+                                                            <div class="course-desc">
+                                                                <p>
+                                                                    <%= courses[i].description %>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="course-meta-bot">
+                                                            <ul>
+                                                                <li><i class="fa fa-user" aria-hidden="true"></i>Teacher
+                                                                    Name</li>
+                                                            </ul>
+                                                        </div>
+                                                        <% if(user.role=='teacher' ) { %>
+
+                                                            <div class="clearfix">
+                                                                <a style="display: block;"
+                                                                    href="courses/<%= courses[i].slug %>?_method=DELETE"
+                                                                    onclick="return confirm('ARE U SURE ?')"
+                                                                    class="btn btn-danger rounded-0 text-white">DELETE</a>
+                                                                </br>
+                                                                <a style="display: block;"
+                                                                    
+                                                                    class="btn btn-warning rounded-0 text-white"
+                                                                    data-target="#UpdateCourse<%= courses[i]._id %>"
+                                                                    data-toggle="modal">UPDATE</a>
+                                                            </div>
+
+                                                            <% } %>
+                                                           
+                                                    </div>
+                                                    <div class="modal fade" id="UpdateCourse<%= courses[i]._id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                                        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-body customer-box">
+                                                                    <!-- Tab panes -->
+                                                                    <div class="tab-content">
+                                                                        <div class="tab-pane active" id="Login">
+                    <form method="POST" action="/courses/<%= courses[i].slug %>?_method=PUT" class="form-horizontal">
+                                                <div class="form-group">
+                                                                                    <div class="col-sm-12">
+                                                                        
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <div class="col-sm-12">
+                    <input type="text" name="title" class="form-control" value="<%=courses[i].title %>" 
+                                                                                            placeholder="Course Name">
+                     <input type="text" name="description" value="<%=courses[i].description %>" class="form-control"
+                                                                                            placeholder="Course Description">  
+                                                                                    </div>
+                                                                                    <div class="col-sm-12">
+                                                                                        <select class="form-control" name="category">
+                                                                                            <% for (let i=0 ; i < categories.length ; i++ ) { %>
+                                                                                                <option value="<%= categories[i]._id %>">
+                                                                                                    <%= categories[i].title %>
+                                                                                                </option>
+                                                                                                <% } %>
+                                                                                        </select>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="row">
+                                                                                    <div class="col-sm-10">
+                                                                                        <button type="submit" class="btn btn-light btn-radius btn-brd grd1">
+                                                                                            Submit
+                                                                                        </button>
+                                                                                        <button type="submit" class="btn btn-light btn-radius btn-brd grd1"
+                                                                                            data-dismiss="modal" aria-hidden="true">
+                                                                                            Cancel
+                                                                                        </button>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <% } %>
+                                                    
+                                                </div><!-- end col -->
+                                             
+                                        </div><!-- end row -->
+
+
+
+                                    </div><!-- end col -->
+                                   
+                                   
+                                </div><!-- end row -->
+                                
+                            </div><!-- end container -->
+                            
+                        </div><!-- end section -->
+                      
+                        
+                        <footer class="footer">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-xs-12">
+                                        <div class="widget clearfix">
+                                            <div class="widget-title">
+                                                <h3>About US</h3>
+                                            </div>
+                                            <p> Integer rutrum ligula eu dignissim laoreet. Pellentesque venenatis nibh sed tellus faucibus bibendum. Sed fermentum est vitae rhoncus molestie. Cum sociis natoque penatibus et magnis dis montes.</p>   
+                                            <div class="footer-right">
+                                                <ul class="footer-links-soi">
+                                                    <li><a href="https://www.linkedin.com/in/tolgahan-bora/"><i class="fa fa-facebook"></i></a></li>
+                                                    <li><a href="https://github.com/tolgahanbora"><i class="fa fa-github"></i></a></li>
+                                                    <li><a href="https://www.linkedin.com/in/tolgahan-bora/"><i class="fa fa-twitter"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                                                </ul><!-- end links -->
+                                            </div>						
+                                        </div><!-- end clearfix -->
+                                    </div><!-- end col -->
+                    
+                                    <div class="col-lg-4 col-md-4 col-xs-12">
+                                        <div class="widget clearfix">
+                                            <div class="widget-title">
+                                                <h3>Information Link</h3>
+                                            </div>
+                                            <ul class="footer-links">
+                                                <li><a href="#">Home</a></li>
+                                                <li><a href="#">Blog</a></li>
+                                                <li><a href="#">Pricing</a></li>
+                                                <li><a href="#">About</a></li>
+                                                <li><a href="#">Contact</a></li>
+                                            </ul><!-- end links -->
+                                        </div><!-- end clearfix -->
+                                    </div><!-- end col -->
+                                    
+                                    <div class="col-lg-4 col-md-4 col-xs-12">
+                                        <div class="widget clearfix">
+                                            <div class="widget-title">
+                                                <h3>Contact Details</h3>
+                                            </div>
+                    
+                                            <ul class="footer-links">
+                                                <li><a href="mailto:tolgahanbora@outlook.com">tolgahanbora@outlook.com</a></li>
+                                                <li><a href="www.tolgahanbora.dev">www.tolgahanbora.dev</a></li>
+                                                <li>PO Box 16122 Collins Street West Victoria 8007 Australia</li>
+                                                <li>+90 8376 6284</li>
+                                            </ul><!-- end links -->
+                                        </div><!-- end clearfix -->
+                                    </div><!-- end col -->
+                                    
+                                </div><!-- end row -->
+                            </div><!-- end container -->
+                        </footer><!-- end footer -->
+                    
+                        <div class="copyrights">
+                            <div class="container">
+                                <div class="footer-distributed">
+                                    <div class="footer-center">                   
+                                        <p class="footer-company-name">All Rights Reserved. &copy; 2022 <a href="#">SmartEDU</a> Design By <span class="text-white">Tolgahan Bora</span> <a href="https://www.linkedin.com/in/tolgahan-bora/"></a></p>
+                                    </div>
+                                </div>
+                            </div><!-- end container -->
+                        </div><!-- end copyrights -->
+
+                        <a href="#" id="scroll-to-top" class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
+
+                        <!-- ALL JS FILES -->
+                        <script src="js/all.js"></script>
+                        <!-- ALL PLUGINS -->
+                        <script src="js/custom.js"></script>
+
+</body>
+
+</html>
