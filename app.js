@@ -10,13 +10,13 @@ import session from "express-session";
 import MongoStore from "connect-mongo";
 import flash from "connect-flash"
 import methodOverride from "method-override"
-const port = process.env.PORT
+const port = process.env.PORT || 5000
 const app = Express()
 const __dirname = path.resolve()
 
 
 //MONGOOSE CONNECT
-mongoose.connect(process.env.MONGOSEURL)
+mongoose.connect(`${process.env.DB_URI}`)
 
 //TEMPLATE ENGİNE
 app.set("view engine", "ejs")
