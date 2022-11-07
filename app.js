@@ -1,6 +1,6 @@
 import Express  from "express";
 import mongoose from "mongoose";
-
+import dotenv from 'dotenv'
 import path from 'path'; 
 import RoutePage from './routes/RoutePage.js'
 import RouteCourse from './routes/RouteCourse.js'
@@ -14,7 +14,7 @@ const port = process.env.PORT || 5000
 const app = Express()
 const __dirname = path.resolve()
 
-
+dotenv.config()
 //MONGOOSE CONNECT
 mongoose.connect(`${process.env.DB_URI}`)
 
