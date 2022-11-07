@@ -4,7 +4,6 @@
   "description": "Smartedu is a education app. You can be add course and got admin panel",
   "main": "app.js",
   "scripts": {
-    "postinstall": "npm run build",
     "start": "node app.js"
   },
   "repository": {
