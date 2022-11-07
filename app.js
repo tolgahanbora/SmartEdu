@@ -16,7 +16,14 @@ const __dirname = path.resolve()
 
 dotenv.config()
 //MONGOOSE CONNECT
-mongoose.connect(`${process.env.DB_URI}`)
+mongoose.connect(`${process.env.DB_URI}`,{
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+    useCreateIndex: true,
+}).then(() => {
+    console.log("MONGODB CONNECTED !!")
+})
 
 //TEMPLATE ENGİNE
 app.set("view engine", "ejs")
