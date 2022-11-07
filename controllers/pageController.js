@@ -81,7 +81,7 @@ const SendEmail = async (req,res) => {
     <p> ${req.body.comments}</p>`
     
     let transporter = nodemailer.createTransport({
-        host: "smtp.ethereal.email",
+        host: "smtp.gmail.com",
         port: 465,
         secure: true, // true for 465, false for other ports
         auth: {
@@ -90,7 +90,7 @@ const SendEmail = async (req,res) => {
         },
       });
       let info = await transporter.sendMail({
-        from: '"Smart EDU Contact Form" <tyrell.lubowitz0@ethereal.email>', // sender address
+        from: '"Smart EDU Contact Form" <smartEdu@gmail.com>', // sender address
         to:  'tolgahanbora@outlook.com', // list of receivers
         subject: "Smart EDU Contact Form ✔", // Subject line
         html: outputMessage, // html body
