@@ -37,7 +37,7 @@ app.use(session({
     secret: 'my_keyboard_cat',
     resave: false,
     saveUninitialized: true,
-    store: MongoStore.create({ mongoUrl:`${process.env.MONGOSEURL}` })
+    store:  MongoStore.create({mongoUrl : process.env.DB_URI} )
 }))
 app.use(flash())
 app.use((req,res,next) => {
